@@ -16,10 +16,9 @@ const loadPkmn = (devLink, currScript) => {
       const level = xpBar.querySelector("summary").textContent;
       const levelText = level.split("]")[0].split("[")[1];
       // don't do it if there's already a level in there?
-      const testing = xpBar.closest(".pokemon").querySelector(".title").textContent;
-      console.log(testing.split("✦"));
+      const hasLevel = xpBar.closest(".pokemon").querySelector(".title").textContent.includes("✦");
 
-      xpBar.closest(".pokemon").querySelector(".title small").insertAdjacentText("beforebegin", ` [${levelText}]`);
+      hasLevel || xpBar.closest(".pokemon").querySelector(".title small").insertAdjacentText("beforebegin", ` [${levelText}]`);
 
       pkmn.removeAttribute("open");
     });
