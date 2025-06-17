@@ -4,7 +4,7 @@ const loadPkmn = (devLink, currScript) => {
     .then((html) => handleHtml(html));
 
   function handleHtml(html) {
-    const postContainer = currScript.closest(".postcolor");
+    const postContainer = currScript.closest(".postcolor") || currScript.closest(".profiletextbox");
     console.log("running code", postContainer, devLink);
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
